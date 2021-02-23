@@ -8,6 +8,11 @@ const router = Router();
 // Middleware: Verifica si el usuario está logueado.
 // en caso de que no, lo mandamos al login
 function checkLogin(req, res, next) {
+  if(req.session.user){
+   // res.redirect('/')
+  }else{
+    return res.redirect('/login');
+  }
   console.log('verificando que el usuario está logueado');
   next();
 }
